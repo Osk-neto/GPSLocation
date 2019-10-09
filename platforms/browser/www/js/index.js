@@ -57,10 +57,16 @@ function geoCallback(position){
 
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
-    
+   
+
     var location = "Latitude = " + latitude +"<br>" +" Longitude = "+longitude;
     document.getElementById('myLocation').innerHTML = location;
 
+    map.setCenter(new google.maps.LatLng(latitude,longitude));
+    marker = new google.maps.Marker({position: new google.maps.LatLng(latitude,longitude),map:map});
+
+    
+    
 
    console.log("Latitude = " + latitude + " Longitude = "+longitude);
    
@@ -77,9 +83,9 @@ function onError(massage){
 function initMap() {    
     
     
-    var currentPosition = {lat: 53.3159214, lng: -6.2821773};
+    var currentPosition = {lat: 53.3458, lng: -6.2575};
    
-    var map = new google.maps.Map(document.getElementById('map'), { zoom: 16, center: currentPosition});
+    map = new google.maps.Map(document.getElementById('map'), { zoom: 16, center: currentPosition});
     var marker = new google.maps.Marker({position: currentPosition,map: map});
      
 
